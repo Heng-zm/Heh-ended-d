@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Nham24 UI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+/* General Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+h1, h2 {
+  margin: 0;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background-color: #008080;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.header-content #location {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.header-content i {
+  margin-right: 5px;
+}
+
+/* Ads Section */
+.ads {
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.ad-carousel img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Categories Section */
+.categories {
+  padding: 10px;
+}
+
+.categories h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.category-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-item {
+  flex: 1;
+  margin: 5px;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-item i {
+  font-size: 24px;
+  color: #008080;
+  margin-bottom: 5px;
+}
+
+.category-item span {
+  display: block;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Orders Section */
+.orders {
+  padding: 10px;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-list li {
+  background-color: white;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+/* Bottom Navigation */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #008080;
+  padding: 10px 0;
+}
+
+.nav-item {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+
+.nav-item i {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.nav-item.active {
+  color: #FFD700;
+}
+</style>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1>Nham24</h1>
+      <div id="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Detecting location...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ads Section -->
+  <section class="ads">
+    <div class="ad-carousel">
+      <img src="https://via.placeholder.com/300x100" alt="Ad 1">
+      <img src="https://via.placeholder.com/300x100" alt="Ad 2">
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories">
+    <h2>Categories</h2>
+    <div class="category-grid">
+      <div class="category-item">
+        <i class="fas fa-utensils"></i>
+        <span>Food</span>
+      </div>
+      <div class="category-item">
+        <i class="fas fa-coffee"></i>
+        <span>Drinks</span>
+      </div>
+      <div class="category-item">
+        <i class="fas fa-ice-cream"></i>
+        <span>Snacks</span>
+      </div>
+      <div class="category-item">
+        <i class="fas fa-gift"></i>
+        <span>Gifts</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Orders -->
+  <section class="orders">
+    <h2>Your Orders</h2>
+    <ul class="order-list">
+      <li>Order 1: Pizza - Delivered</li>
+      <li>Order 2: Bubble Tea - In Progress</li>
+    </ul>
+  </section>
+
+  <!-- Bottom Navigation -->
+  <nav class="navbar">
+    <a href="#" class="nav-item active"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-search"></i> Search</a>
+    <a href="#"><i class="fas fa-list"></i> Orders</a>
+    <a href="#"><i class="fas fa-user"></i> Profile</a>
+  </nav>
+
+  <script>
+// Detect Location (Simulated)
+document.addEventListener('DOMContentLoaded', () => {
+  const locationElement = document.getElementById('location');
+  setTimeout(() => {
+    locationElement.innerHTML = `<i class="fas fa-map-marker-alt"></i> Phnom Penh, Cambodia`;
+  }, 2000);
+});
+
+// Dynamic Ad Carousel (Example)
+const ads = [
+  'https://via.placeholder.com/300x100?text=Ad+1',
+  'https://via.placeholder.com/300x100?text=Ad+2',
+  'https://via.placeholder.com/300x100?text=Ad+3',
+];
+
+let currentAd = 0;
+const adCarousel = document.querySelector('.ad-carousel');
+
+setInterval(() => {
+  currentAd = (currentAd + 1) % ads.length;
+  adCarousel.innerHTML = `<img src="${ads[currentAd]}" alt="Ad ${currentAd + 1}">`;
+}, 3000);
+</script>
+</body>
+</html>
